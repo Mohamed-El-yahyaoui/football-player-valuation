@@ -1,6 +1,5 @@
 
-# Modèle d'arbre de décision pour estimer la valeur marchande
-# des joueurs de football
+# Modèle d'arbre de décision pour estimer la valeur marchande des joueurs de football
 # Auteur : El Yahyaoui Mohamed — Université Paris-Est Créteil
 # Outil   : Python (scikit-learn, pandas)
 
@@ -10,7 +9,6 @@ import numpy as np
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import cross_val_score
 
-# Chargement du fichier Excel
 data = pd.read_excel("BD.xlsx")
 
 # Suppression des lignes avec des valeurs manquantes
@@ -34,7 +32,6 @@ data['GrandPays'] = data['Nationalite'].isin(grands_pays).astype(int)
 
 data['PositionBinaire'] = data['Position'].isin(['Attaquant', 'Milieu']).astype(int)
 
-# Préparation des variables
 X = data[['Age_centre', 'Age_centre**2', 'Buts', 'Passes', 'Minutes',
           'PositionBinaire', 'GrandClub', 'GrandPays']]
 y = data['Valj']
@@ -52,15 +49,14 @@ feature_importance = pd.DataFrame({
 print("\nImportance des variables dans l'arbre de décision :")
 print(feature_importance.to_string(index=False))
 
-# Validation croisée (5-fold)
+# Validation croisée 
 cv_scores = cross_val_score(model_tree, X, y, cv=5)
 print("\nScores de validation croisée (Arbre de décision) :", cv_scores)
 print("Moyenne des scores :", cv_scores.mean())
 print("Écart-type des scores  :", cv_scores.std())
 
-# ============================================================
 # Résultats obtenus
-# ------------------------------------------------------------
+
 # Variable         Importance
 # Buts               0.310
 # Passes             0.150
@@ -70,4 +66,4 @@ print("Écart-type des scores  :", cv_scores.std())
 # Age_centre**2      0.080
 # GrandPays          0.080
 # PositionBinaire    0.055
-# ============================================================
+
