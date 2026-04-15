@@ -1,4 +1,4 @@
-# Analyse des déterminants de la valeur marchande des joueurs de football ⚽📊
+# Analyse des déterminants de la valeur marchande des joueurs de football 
 
 Projet Individuel Tutoré — Licence Économie & Gestion (L3)  
 Université Paris-Est Créteil (UPEC)
