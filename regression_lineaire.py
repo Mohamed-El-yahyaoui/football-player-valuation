@@ -1,8 +1,7 @@
-# ============================================================
+
 # Validation de la régression linéaire multiple avec Python
 # Auteur : El Yahyaoui Mohamed — Université Paris-Est Créteil
 # Outil   : Python (scikit-learn, pandas, matplotlib)
-# ============================================================
 
 import pandas as pd
 import numpy as np
