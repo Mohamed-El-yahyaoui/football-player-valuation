@@ -9,7 +9,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import cross_val_score
 import matplotlib.pyplot as plt
 
-# Chargement du fichier Excel
 data = pd.read_excel("BD.xlsx")
 
 # Suppression des lignes avec des valeurs manquantes
@@ -34,7 +33,6 @@ data['GrandPays'] = data['Nationalite'].isin(grands_pays).astype(int)
 
 data['PositionBinaire'] = data['Position'].isin(['Attaquant', 'Milieu']).astype(int)
 
-# Préparation des variables
 X = data[['Age_centre', 'Age_centre**2', 'Buts', 'Passes', 'Minutes',
           'PositionBinaire', 'GrandClub', 'GrandPays']]
 y = data['Valj']
@@ -49,7 +47,7 @@ print("\nCoefficients de la régression :")
 print(coefficients)
 print(f"Intercept : {model.intercept_:.4f}")
 
-# Validation croisée (5-fold)
+# Validation croisée
 cv_scores = cross_val_score(model, X, y, cv=5)
 print("\nScores de validation croisée :", cv_scores)
 print("Moyenne des scores :", cv_scores.mean())
