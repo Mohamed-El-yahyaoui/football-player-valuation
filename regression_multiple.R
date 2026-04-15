@@ -1,29 +1,24 @@
 
-# Analyse économétrique des déterminants de la valeur marchande
-# des joueurs de football en Europe
+# Analyse économétrique des déterminants de la valeur marchande des joueurs de football en Europe
 # Auteur : El Yahyaoui Mohamed — Université Paris-Est Créteil
 # Outil   : R Studio
 
-# Étape 1 : Définir le répertoire de travail
 setwd("C:/Users/moham/Desktop/base")  # À adapter selon votre machine
-
-# Étape 2 : Charger les données
 data <- read.csv2("BD.csv", header = TRUE, stringsAsFactors = TRUE, encoding = "latin1")
 
-# Étape 3 : Vérifier la structure des données
 print(str(data))
 
-# Étape 4 : Nettoyer et convertir les types de données
+# Nettoyer et convertir les types de données
 data$Valeur  <- as.numeric(gsub("M", "", data$Valeur))
 data$Age     <- as.numeric(as.character(data$Age))
 data$Buts    <- as.numeric(as.character(data$Buts))
 data$Passes  <- as.numeric(as.character(data$Passes))
 data$Minutes <- as.numeric(as.character(data$Minutes))
 
-# Étape 5 : Créer la variable Âge centré à 26 ans (pic de carrière)
+# Créer la variable Âge centré à 26 ans (pic de carrière)
 data$Age_centre <- data$Age - 26
 
-# Étape 6 : Créer les variables binaires
+# Créer les variables binaires en fonction du club
 # Grand Club (1) ou Petit Club (0)
 grands_clubs <- c("PSG", "Manchester City", "Real Madrid", "Liverpool",
                   "Manchester United", "Bayern Munich", "Inter Milan",
@@ -40,17 +35,15 @@ data$GrandPays <- ifelse(data$Nationalite %in% grands_pays, 1, 0)
 # Position offensive (1) ou défensive/gardien (0)
 data$PositionBinaire <- ifelse(data$Position %in% c("Attaquant", "Milieu"), 1, 0)
 
-# Étape 7 : Régression multiple
+# Régression multiple
 # Valeur = f(Age, Age², Buts, Passes, Minutes, Position, Club, Nationalité)
 model <- lm(Valeur ~ Age_centre + I(Age_centre^2) + Buts + Passes + Minutes +
               PositionBinaire + GrandClub + GrandPays, data = data)
 
-# Étape 8 : Afficher les résultats
+# Résultats
 summary(model)
 
-# ============================================================
 # Tests statistiques
-# ============================================================
 
 # Test de significativité globale (Fisher)
 # H0 : le modèle n'est pas globalement significatif
