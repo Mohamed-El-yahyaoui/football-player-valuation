@@ -1,9 +1,8 @@
-# ============================================================
+
 # Analyse économétrique des déterminants de la valeur marchande
 # des joueurs de football en Europe
 # Auteur : El Yahyaoui Mohamed — Université Paris-Est Créteil
 # Outil   : R Studio
-# ============================================================
 
 # Étape 1 : Définir le répertoire de travail
 setwd("C:/Users/moham/Desktop/base")  # À adapter selon votre machine
