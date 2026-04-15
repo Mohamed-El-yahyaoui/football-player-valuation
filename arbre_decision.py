@@ -1,9 +1,9 @@
-# ============================================================
+
 # Modèle d'arbre de décision pour estimer la valeur marchande
 # des joueurs de football
 # Auteur : El Yahyaoui Mohamed — Université Paris-Est Créteil
 # Outil   : Python (scikit-learn, pandas)
-# ============================================================
+
 
 import pandas as pd
 import numpy as np
