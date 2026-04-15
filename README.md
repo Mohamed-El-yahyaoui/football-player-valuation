@@ -13,7 +13,7 @@ Ce projet analyse les facteurs qui influencent la **valeur marchande des joueurs
 
 ## Données
 
-- **100 joueurs** issus des 5 grands championnats européens (saison 2023-2024)
+- **100** issus des 5 grands championnats européens (saison 2023-2024)
 - Sources : Transfermarkt, Opta, CIES Football Observatory
 - Variables : âge, buts, passes décisives, minutes jouées, poste, club, nationalité
 
@@ -52,5 +52,4 @@ Ce projet analyse les facteurs qui influencent la **valeur marchande des joueurs
 
 ## Auteur
 
-**El Yahyaoui Mohamed** — étudiant en L3 Économie & Gestion, UPEC  
-Projet réalisé dans le cadre du PIT (Projet Individuel Tutoré)
+**El Yahyaoui Mohamed**
